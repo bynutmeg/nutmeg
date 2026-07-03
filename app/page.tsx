@@ -2,58 +2,35 @@ import Meg from "./components/Meg";
 export default function Home() {
   return (
    <main className="bg-[#FAF6F0] text-[#5C4335]">
-      {/* NAVBAR */}
+     {/* NAVBAR */}
 
-<header className="sticky top-0 z-40 backdrop-blur-md bg-[#FAF6F0]/80 border-b border-[#F2E5DA]">
-
+<header className="sticky top-0 z-40 border-b border-[#F2E5DA] bg-[#FAF6F0]/80 backdrop-blur-md">
   <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+    <div>
+      <h2 className="text-xl tracking-wide">
+        Nutmeg
+      </h2>
 
-    <div className="flex items-center gap-3">
-
-    <img
-  src="/logo.png"
-  alt="Nutmeg"
-  className="mb-8 h-40 w-40 rounded-full shadow-2xl sm:h-52 sm:w-52 md:h-64 md:w-64"
-  style={{
-    animation: "bounce 3s infinite",
-    pointerEvents: "none",
-  }}
-/>
-
-      <div>
-
-        <h2 className="text-xl tracking-wide">
-          Nutmeg
-        </h2>
-
-        <p className="text-xs text-[#B08A74]">
-          Little joys for your desk.
-        </p>
-
-      </div>
-
+      <p className="text-xs text-[#B08A74]">
+        Little joys for your desk.
+      </p>
     </div>
 
     <nav className="hidden gap-8 text-sm md:flex">
-
-      <a href="#story" className="hover:text-[#C6868F] transition">
+      <a href="#story" className="transition hover:text-[#C6868F]">
         Our Story
       </a>
 
-      <a href="#products" className="hover:text-[#C6868F] transition">
+      <a href="#products" className="transition hover:text-[#C6868F]">
         Coming Soon
       </a>
 
-      <a href="#instagram" className="hover:text-[#C6868F] transition">
+      <a href="#instagram" className="transition hover:text-[#C6868F]">
         Instagram
       </a>
-
     </nav>
-
   </div>
-
 </header>
-
     {/* HERO */}
 
 <section className="relative min-h-[85vh] overflow-hidden">
@@ -68,7 +45,7 @@ export default function Home() {
    <img
   src="/logo.png"
   alt="Nutmeg"
-  className="mb-8 h-40 w-40 rounded-full shadow-2xl sm:h-52 sm:w-52 md:h-64 md:w-64"
+  className="mb-8 h-40 w-40 animate-bounce rounded-full shadow-2xl sm:h-52 sm:w-52 md:h-64 md:w-64"
   style={{
     animationDuration: "3s",
     pointerEvents: "none",
