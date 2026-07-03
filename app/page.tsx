@@ -10,11 +10,15 @@ export default function Home() {
 
     <div className="flex items-center gap-3">
 
-      <img
-        src="/logo.png"
-        alt="Nutmeg"
-        className="h-12 w-12 rounded-full"
-      />
+    <img
+  src="/logo.png"
+  alt="Nutmeg"
+  className="mb-8 h-40 w-40 rounded-full shadow-2xl sm:h-52 sm:w-52 md:h-64 md:w-64"
+  style={{
+    animation: "bounce 3s infinite",
+    pointerEvents: "none",
+  }}
+/>
 
       <div>
 
@@ -56,21 +60,20 @@ export default function Home() {
 
   {/* Soft background glows */}
 
-  <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl animate-pulse"></div>
+  <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl animate-pulse"></div>
 
-  <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-emerald-100/40 blur-3xl animate-pulse"></div>
+<div className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-emerald-100/40 blur-3xl animate-pulse"></div>
 
-  <div className="mx-auto flex min-h-[85vh] max-w-6xl flex-col items-center justify-center px-6 py-20 text-center">
-
-    <img
-      src="/logo.png"
-      alt="Nutmeg"
-      className="mb-8 h-40 w-40 animate-bounce rounded-full shadow-2xl sm:h-52 sm:w-52 md:h-64 md:w-64"
-      style={{
-        animationDuration: "3s",
-      }}
-    />
-
+  <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-6xl flex-col items-center justify-center px-6 py-20 text-center">
+   <img
+  src="/logo.png"
+  alt="Nutmeg"
+  className="mb-8 h-40 w-40 rounded-full shadow-2xl sm:h-52 sm:w-52 md:h-64 md:w-64"
+  style={{
+    animationDuration: "3s",
+    pointerEvents: "none",
+  }}
+/>
     <p className="uppercase tracking-[0.35em] text-sm text-[#C6868F]">
       Curated for cozy minds ✨
     </p>
@@ -88,23 +91,23 @@ export default function Home() {
 
     <div className="mt-10 flex w-full max-w-sm flex-col gap-4 sm:max-w-none sm:flex-row sm:justify-center">
 
-      <a
-  href="#products"
-  className="rounded-full bg-[#8B5E3C] px-8 py-4 text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
->
-  Explore What's Brewing ☕
-</a>
+  <a
+    href="#products"
+    className="inline-flex w-full items-center justify-center rounded-full bg-[#8B5E3C] px-8 py-4 text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl sm:w-auto"
+  >
+    Explore What's Brewing ☕
+  </a>
 
-     <a
-  href="https://instagram.com/nutmeg.online"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="rounded-full border border-[#8B5E3C] px-8 py-4 transition duration-300 hover:bg-[#F8D8E5]"
->
-  Follow our Journey →
-</a>
+  <a
+    href="https://instagram.com/nutmeg.online"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex w-full items-center justify-center rounded-full border border-[#8B5E3C] px-8 py-4 transition duration-300 hover:bg-[#F8D8E5] sm:w-auto"
+  >
+    Follow our Journey →
+  </a>
 
-    </div>
+</div>
 
     <p className="mt-16 animate-bounce text-[#B59B8C]">
       ↓ Scroll for a little joy
