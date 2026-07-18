@@ -30,4 +30,28 @@ h3 {
     transform:translateY(0px);
   }
 
+}@keyframes bubbleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bubble {
+  animation: bubbleFade 6s ease-in-out;
 }

@@ -1,58 +1,65 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-const messages = [
-  "Hi! I'm Meg! 🌸",
-  "Packing something special... 📦",
-  "Hope you're having a cozy day! ☕",
-  "You're one of our very first visitors! 🤎",
-  "Can I help you choose a box?",
+const introMessages = [
+  "👋 Hi! I'm Meg.",
+  "🌰 Welcome to Nutmeg!",
+  "✨ Everything here is chosen with care.",
+  "📦 We're getting ready for launch.",
+  "💛 Enjoy looking around!",
 ];
 
 export default function Meg() {
   const [showBubble, setShowBubble] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  const message = useMemo(
-    () => messages[Math.floor(Math.random() * messages.length)],
-    [showBubble]
-  );
+  const [messageIndex, setMessageIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, 2000);
+    const timers: NodeJS.Timeout[] = [];
 
-    return () => clearTimeout(timer);
+    // Show bubble after 2 seconds
+    timers.push(
+      setTimeout(() => {
+        setShowBubble(true);
+      }, 2000)
+    );
+
+    // Message sequence
+    timers.push(setTimeout(() => setMessageIndex(1), 6000));
+    timers.push(setTimeout(() => setMessageIndex(2), 12000));
+    timers.push(setTimeout(() => setMessageIndex(3), 18000));
+    timers.push(setTimeout(() => setMessageIndex(4), 24000));
+
+    // Close bubble automatically
+    timers.push(
+      setTimeout(() => {
+        setShowBubble(false);
+      }, 30000)
+    );
+
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
-    <div
-      className={`fixed bottom-3 right-5 z-50 transition-all duration-700 ${
-        visible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-20 opacity-0"
-      }`}
-    >
+    <div className="fixed bottom-5 right-5 z-[9999]">
       {showBubble && (
-        <div className="mb-4 w-64 rounded-3xl border border-pink-200 bg-white p-4 shadow-xl">
+        <div className="mb-3 w-64 rounded-3xl border border-pink-200 bg-white p-4 shadow-xl">
           <p className="text-sm leading-6 text-[#5C4335]">
-            {message}
+            {introMessages[messageIndex]}
           </p>
         </div>
       )}
 
       <button
         type="button"
-        onClick={() => setShowBubble(!showBubble)}
+        onClick={() => setShowBubble((prev) => !prev)}
         className="animate-[float_4s_ease-in-out_infinite]"
       >
         <img
-  src="/meg-idle.png"
-  alt="Meg"
-  className="w-28 h-auto cursor-pointer transition duration-300 hover:scale-110 drop-shadow-xl"
-/>
+          src="/meg-idle.png"
+          alt="Meg"
+          className="w-28 h-auto cursor-pointer transition-transform duration-300 hover:scale-110 drop-shadow-xl"
+        />
       </button>
     </div>
   );
